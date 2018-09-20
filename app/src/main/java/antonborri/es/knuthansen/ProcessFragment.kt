@@ -57,6 +57,10 @@ class ProcessFragment : Fragment() {
                 Log.e("FACE FAILURE", it.message)
             }
         }
+
+        img_photo.setOnClickListener {
+            Log.i("","")
+        }
     }
 
 }

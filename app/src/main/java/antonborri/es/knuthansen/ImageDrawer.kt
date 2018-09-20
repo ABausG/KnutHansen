@@ -19,7 +19,7 @@ class ImageDrawer @Inject constructor(var app: Application) {
     private val filter = ColorMatrixColorFilter(cm);
 
     private val eyePaint = Paint().apply {
-        alpha = 160
+        //alpha = 160
         color = ContextCompat.getColor(app, R.color.knutBlue)
         xfermode = PorterDuffXfermode(PorterDuff.Mode.OVERLAY)
     }
