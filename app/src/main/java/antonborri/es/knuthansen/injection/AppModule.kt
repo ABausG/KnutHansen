@@ -1,7 +1,9 @@
 package antonborri.es.knuthansen.injection
 
 import android.app.Application
+import androidx.lifecycle.ViewModelProvider
 import antonborri.es.knuthansen.ImageDrawer
+import antonborri.es.knuthansen.ProcessViewModelFactory
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions
@@ -26,10 +28,12 @@ class AppModule {
     }
 
     @Provides
-    @Singleton
     fun provideImageDrawer(app: Application) : ImageDrawer = ImageDrawer(app)
 
     @Provides
     @Singleton
     fun provideFaceDetector(options: FirebaseVisionFaceDetectorOptions): FirebaseVisionFaceDetector = FirebaseVision.getInstance().getVisionFaceDetector(options)
+
+    @Provides
+    fun provideProcessViewModel(factory: ProcessViewModelFactory) : ViewModelProvider.Factory = factory
 }
